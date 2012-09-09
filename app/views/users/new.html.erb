@@ -4,3 +4,15 @@
   <h1>Mini Arcade</h1>
   <h2>Enter your name now to play the spinning game!</h2>
 </div>
+
+<div class='row'>
+  <div class='span12'>
+    <%= form_for(@user) do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class='row-fluid'>
+        <div class='span8'><%= f.text_field :name, { class: 'span12', placeholder: 'Enter your name here' } %></div>
+        <div class='span4'><%= f.submit "Go", class: "span2 btn btn-primary"  %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
