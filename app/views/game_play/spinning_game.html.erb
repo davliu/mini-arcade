@@ -1,0 +1,27 @@
+<%= javascript_include_tag "game_play" %>
+
+<h1>Spinny, the Spinning Game</h1>
+<h2>Lets Go <%=  @user.name %></h2>
+
+<%=  image_tag 'ajax-loader.gif', {id: 'spinner'} %>
+<% @spinning_board.each do |row| %>
+  <div class='row'>
+    <% row.each do |column| %>
+      <div class='span1' <% if column['order'] >= 0 %><%= "id='order_#{column["order"]}'" %><% end %>>
+        <%=  image_tag column["img"], { class: 'logo', value: column["score"]} %>
+      </div>
+    <% end %>
+ </div>
+<% end %>
+
+<br/>
+<div>
+  <%= form_for(@score, remote: true) do |f| %>
+    <div><%= f.hidden_field :points, { value: 0 } %></div>
+    <div><%= f.hidden_field :rounds, { value: 0 } %></div>
+    <%= f.submit "Hit!", class: 'btn btn-primary span8 btn-large' %>
+  <% end %>
+</div>
+
+<div id="status">
+</div>

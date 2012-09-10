@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       session[:user_id] = @user
-      redirect_to controller: 'scores', action: 'spinning_game'
+      redirect_to controller: 'game_play', action: 'spinning_game'
     else
       render 'new'
     end

@@ -1,0 +1,3 @@
+$('#status').show();
+$('#status').html("<%= escape_javascript(image_tag(@image)) %> You just scored <%= @score[:points] %> points!");
+$('#status').fadeOut('10000', 'linear');
