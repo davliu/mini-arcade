@@ -30,17 +30,12 @@ describe Score do
     it { should == 4 }
   end
 
-  describe "add score with ajax" do
+  describe "accessible attributes" do
     let(:user) { FactoryGirl.create(:user) }
-    it "should increase score by amount" do
+    it "should not allow access to user_id" do
       expect do
-        xhr :post, :create, score: { user_id: user.id, points: 10, rounds: 1 }
-      end.to change(Score, :count).by(1)
-    end
-
-    it "should be successful" do
-      xhr :post, :create, score: { user_id: user.id, points: 10, rounds: 1 }
-      response.should be_success
+        Score.new(user_id: user.id)
+      end.to raise_error(ActiveModel::MassAssignmentSecurity::Error)
     end
   end
 end

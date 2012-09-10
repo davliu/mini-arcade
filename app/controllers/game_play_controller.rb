@@ -4,4 +4,8 @@ class GamePlayController < ApplicationController
     @score = @user.scores.build
     @spinning_board = Score.get_spinning_board
   end
+
+  def game_over
+    reset_session
+  end
 end

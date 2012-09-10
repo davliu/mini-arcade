@@ -2,6 +2,7 @@ MiniArcade::Application.routes.draw do
   resources :users, :scores
   match '/play', to: 'users#new'
   match '/spinning_game', to: 'game_play#spinning_game'
+  match '/game_over', to: 'game_play#game_over'
   root :to => 'users#new'
 
   # The priority is based upon order of creation:

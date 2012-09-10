@@ -3,6 +3,7 @@
 // I don't own ANY of these images!
 
 var position = 0;
+var interval = 200;
 
 function move_spinner() {
     $('.logo').show();
@@ -15,8 +16,9 @@ function move_spinner() {
         position = 0;
         $('#score_rounds').val(parseInt($('#score_rounds').val()) + 1);
     }
+    setTimeout(move_spinner, interval);
 }
 
 $(function() {
-    setInterval(move_spinner, 200);
+  move_spinner();
 });

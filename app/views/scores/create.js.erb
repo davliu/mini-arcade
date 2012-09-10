@@ -1,3 +1,11 @@
-$('#status').show();
+$('#status').stop().animate({opacity: '100'}).show();
 $('#status').html("<%= escape_javascript(image_tag(@image)) %> You just scored <%= @score[:points] %> points!");
-$('#status').fadeOut('10000', 'linear');
+$('#status').fadeOut(800);
+
+if (interval >= 40) {
+  interval -= 20;
+}
+
+if (<%= @score[:points] %> == 0) {
+  window.location = '<%= game_over_path %>';
+}
