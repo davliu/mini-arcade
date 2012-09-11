@@ -55,5 +55,8 @@ module MiniArcade
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Compile gameplay.js file
+    config.assets.precompile += %w(game_play.js)
   end
 end
