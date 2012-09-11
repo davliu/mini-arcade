@@ -1,1 +1,45 @@
-<h1>Thank you for playing!</h1>
+<h1>Thank you for playing! <%= link_to "Play Again", root_path, {class: 'btn btn-primary'} %></h1>
+<% if @user %>
+  <h2>Congratulations <%=  @user.name %>, you scored <%= @user.total_score %> points!</h2>
+  <h3>Your Statistics</h3>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th><%= image_tag 'chrome_small.png' %></th>
+        <th><%= image_tag 'firefox_small.png' %></th>
+        <th><%= image_tag 'ie_small.png' %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @user.scores.count(conditions: ['points = 50']) %></td>
+        <td><%= @user.scores.count(conditions: ['points = 30']) %></td>
+        <td><%= @user.scores.count(conditions: ['points = 10']) %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>
+
+<h3>Top 10 Scores</h3>
+<table class='table high-scores'>
+  <thead>
+    <tr>
+      <th>User Name</th>
+      <th>Total Score</th>
+      <th><%= image_tag 'chrome_small.png' %></th>
+      <th><%= image_tag 'firefox_small.png' %></th>
+      <th><%= image_tag 'ie_small.png' %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @top_users.each do |top_user| %>
+      <tr>
+        <td><%= top_user.name %></td>
+        <td><%= top_user.total_score %></td>
+        <td><%= top_user.scores.count(conditions: ['points = 50']) %></td>
+        <td><%= top_user.scores.count(conditions: ['points = 30']) %></td>
+        <td><%= top_user.scores.count(conditions: ['points = 10']) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

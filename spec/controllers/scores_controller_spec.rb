@@ -18,9 +18,20 @@ describe ScoresController do
   end
 
   describe "add a score of zero" do
+    render_views
     it "should be game over" do
       xhr :post, :create, score: { points: 0, rounds: 1 }
-      response.should have_selector('h1', 'Thank you for playing!')
+      response.body.should include("window.location = '#{game_over_path}'")
+    end
+
+    describe "adding points to user total" do
+      it "should increase player score" do
+        expect do
+          xhr :post, :create, score: { points: 30, rounds: 1 }
+          xhr :post, :create, score: { points: 50, rounds: 1 }
+          xhr :post, :create, score: { points: 0, rounds: 1 }
+        end.to change{ User.find_by_id(session[:user_id]).total_score }.by(80)
+      end
     end
   end
 end

@@ -1,11 +1,12 @@
-$('#status').stop().animate({opacity: '100'}).show();
-$('#status').html("<%= escape_javascript(image_tag(@image)) %> You just scored <%= @score[:points] %> points!");
-$('#status').fadeOut(800);
-
-if (interval >= 40) {
-  interval -= 20;
-}
-
-if (<%= @score[:points] %> == 0) {
+<% if @score[:points] == 0 %>
   window.location = '<%= game_over_path %>';
-}
+<% else %>
+  $('#status').stop().animate({opacity: '100'}).show();
+  $('#status').html("<%= escape_javascript(image_tag(@image)) %> + <%= @score[:points] %>");
+  $('#cumulative-score').html(parseInt($('#cumulative-score').html()) + <%= @score[:points] %>);
+  $('#status').fadeOut(800);
+
+  if (interval >= 40) {
+    interval -= 20;
+  }
+<% end %>

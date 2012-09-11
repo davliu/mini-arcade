@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   def new
+    session[:user_id] = nil
     @user = User.new
   end
 
