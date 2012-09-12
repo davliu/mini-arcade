@@ -1,7 +1,8 @@
 <%= javascript_include_tag "game_play.js" %>
 
 <h1>Spinny, the Spinning Game</h1>
-<h2>Lets Go <%=  @user.name %></h2>
+<h2><%=  @user.name %>, press 'Hit' when the spinner is near the 6 o'clock position.  The closer you are, the more
+points you get.  Hit the Netscape and the game is over.</h2>
 
 <%=  image_tag 'ajax-loader.gif', {id: 'spinner'} %>
 <% @spinning_board.each do |row| %>
@@ -19,7 +20,7 @@
   <%= form_for(@score, remote: true) do |f| %>
     <div><%= f.hidden_field :points, { value: 0 } %></div>
     <div><%= f.hidden_field :rounds, { value: 0 } %></div>
-    <%= f.submit "Hit!", class: 'btn btn-primary span8 btn-large' %>
+    <%= f.submit "Hit", class: 'btn btn-primary span8 btn-large' %>
   <% end %>
 </div>
 

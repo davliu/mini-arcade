@@ -37,7 +37,7 @@ describe "UserPages" do
         before { click_button submit }
         let(:user) { User.last }
         it { should have_selector('h1', text: "Spinny, the Spinning Game") }
-        it { should have_selector('h2', text: "Lets Go " + user.name)}
+        it { should have_selector('h2', text: user.name)}
       end
     end
   end

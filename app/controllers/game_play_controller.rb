@@ -16,5 +16,11 @@ class GamePlayController < ApplicationController
     @user = User.find_by_id(session[:user_id])
     @top_users = User.all(order: 'total_score desc, created_at desc', limit: 10)
     reset_session
+
+    # Given an xml request, return xml of the top 10 users
+    respond_to do |format|
+      format.html
+      format.xml { render xml: @top_users}
+    end
   end
 end
