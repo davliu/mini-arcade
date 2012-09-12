@@ -17,6 +17,14 @@ describe ScoresController do
     end
   end
 
+  describe "add a non-zero score" do
+    render_views
+    it "should not be game over" do
+      xhr :post, :create, score: { points: 10, rounds: 1 }
+      response.body.should_not include("window.location = '#{game_over_path}'")
+    end
+  end
+
   describe "add a score of zero" do
     render_views
     it "should be game over" do
