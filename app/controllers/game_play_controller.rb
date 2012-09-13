@@ -20,7 +20,7 @@ class GamePlayController < ApplicationController
     # Given an xml request, return xml of the top 10 users
     respond_to do |format|
       format.html
-      format.xml { render xml: @top_users}
+      format.xml { render xml: @top_users }
     end
   end
 end
