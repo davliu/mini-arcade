@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="10096e35-e86d-4f3c-abc4-a9adaa806cc3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.rdoc" afterPath="$PROJECT_DIR$/README.rdoc" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/game_play_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/game_play_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/game_play/spinning_game.html.erb" afterPath="$PROJECT_DIR$/app/views/game_play/spinning_game.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/new.html.erb" afterPath="$PROJECT_DIR$/app/views/users/new.html.erb" />
     </list>
     <ignored path="MiniArcade.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,7 +56,7 @@
       <file leaf-file-name="README.rdoc" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.rdoc">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="53" selection-start="147" selection-end="147" vertical-scroll-proportion="0.04373178">
+            <state line="3" column="51" selection-start="199" selection-end="199" vertical-scroll-proportion="0.06559767">
               <folding />
             </state>
           </provider>
@@ -920,7 +916,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.rdoc">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="53" selection-start="147" selection-end="147" vertical-scroll-proportion="0.04373178">
+        <state line="3" column="51" selection-start="199" selection-end="199" vertical-scroll-proportion="0.06559767">
           <folding />
         </state>
       </provider>

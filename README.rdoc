@@ -1,3 +1,4 @@
 == Mini Arcade
 A game to press a button when a spinning object appears at a certain location.
 There is a high score board with accuracy statistics.
+Visit the site at http://mini-arcade.herokuapp.com/
