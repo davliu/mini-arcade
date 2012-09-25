@@ -1,19 +1,30 @@
 <%= javascript_include_tag "game_play.js" %>
 
 <h1>Spinny, the Spinning Game</h1>
-<h2><%=  @user.name %>, press 'Hit' when the spinner is near the 6 o'clock position.  The closer you are, the more
-points you get.  Hit the Netscape and the game is over.</h2>
+<p>Hey <%=  @user.name %>! Press 'Hit' when the spinner lands on Chrome, Firefox, or IE.</p>
+<p>Hit Netscape and the game is over.</p>
 
-<%=  image_tag 'ajax-loader.gif', {id: 'spinner'} %>
-<% @spinning_board.each do |row| %>
-  <div class='row'>
-    <% row.each do |column| %>
-      <div class='span1' <% if column['order'] >= 0 %><%= "id='order_#{column["order"]}'" %><% end %>>
-        <%=  image_tag column["img"], { class: 'logo', value: column["score"]} %>
-      </div>
+<%= image_tag 'ajax-loader.gif', {id: 'spinner'} %>
+<div class='row'>
+  <div class='row span8'>
+    <% @spinning_board.each do |row| %>
+      <div class='row'>
+        <div class='row span8'>
+          <% row.each do |column| %>
+            <div class='span1' <% if column['order'] >= 0 %><%= "id='order_#{column["order"]}'" %><% end %>>
+              <%=  image_tag column["img"], { class: 'logo', value: column["score"]} %>
+            </div>
+          <% end %>
+        </div>
+     </div>
     <% end %>
- </div>
-<% end %>
+  </div>
+  <div class="row game-stats span4">
+    <div class='span3'>Total Points: </div>
+    <div class='span3' id="cumulative-score">0</div>
+    <div class='span6' id="status"></div>
+  </div>
+</div>
 
 <br/>
 <div>
@@ -22,10 +33,4 @@ points you get.  Hit the Netscape and the game is over.</h2>
     <div><%= f.hidden_field :rounds, { value: 0 } %></div>
     <%= f.submit "Hit", class: 'btn btn-primary span8 btn-large' %>
   <% end %>
-</div>
-
-<div class="row game-stats">
-  <div class='span2'>Total Points: </div>
-  <div class='span4' id="cumulative-score">0</div>
-  <div class='span4' id="status"></div>
 </div>
